@@ -6,7 +6,6 @@ import Dialog from 'material-ui/Dialog';
 
 export default class Roommate extends Component {
   constructor(props) {
-    console.log('roommate props: ', props)
     super(props);
     this.roommate = props.roommate;
     this.phone = props.roommate.user_phone;

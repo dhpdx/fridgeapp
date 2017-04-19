@@ -18,7 +18,7 @@ export default class AddTask extends Component {
       task_name: this.taskName,
     }
     this.props.addTask(task); 
-    this.taskName = '';
+    document.getElementById('taskName').value='';
     return true;   
   }
 
@@ -26,7 +26,7 @@ export default class AddTask extends Component {
     return (
       <div>
         <form onSubmit={(event) => {this.handleSubmit(event)}}>
-          Task:<br />
+          Add Task!<br />
         <input id="taskName" type="text" onKeyUp={(event) => {
           this.handleOnKeyUp(event)
         }}></input><br />
