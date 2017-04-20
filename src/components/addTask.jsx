@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
 
 export default class AddTask extends Component {
   constructor(props) {
     super(props)
     this.taskName = '';
-    this.taskCost = 0;
   }
 
   handleOnKeyUp(event) {
-    this[event.target.id] = event.target.value
+    console.log('event!! ', event)
+    this.taskName = event.target.value
   }
 
   handleSubmit(event) {
@@ -22,18 +24,43 @@ export default class AddTask extends Component {
     return true;   
   }
 
+  handleOnChange(event) {
+    console.log('event! ', event)
+  }
+
+  // render() {
+  //   return (
+  //     <div>
+  //       <form onSubmit={(event) => {this.handleSubmit(event)}}>
+  //         Add Task!<br />
+  //       <input id="taskName" type="text" onKeyUp={(event) => {
+  //         this.handleOnKeyUp(event)
+  //       }}></input><br />
+  //       <button type="submit">Submit</button>
+  //       </form>      
+  //     </div>
+  //   );
+  // }
+
   render() {
     return (
       <div>
-        <form onSubmit={(event) => {this.handleSubmit(event)}}>
-          Add Task!<br />
-        <input id="taskName" type="text" onKeyUp={(event) => {
-          this.handleOnKeyUp(event)
-        }}></input><br />
-        <button type="submit">Submit</button>
-        </form>      
+        <form onSubmit={(e) => {this.handleSubmit(e)}}>
+        <TextField
+          id="taskName"
+          hintText="Add A Task!"
+          onKeyUp={(e) => {this.handleOnKeyUp(e)}}
+        />
+        <br />
+        <FlatButton
+          style={{color: 'white'}} 
+          backgroundColor={"grey"} 
+          hoverColor="tomato"
+          fullWidth={false}
+          type="submit">Submit</FlatButton>
+        </form>
       </div>
-    );
+    )
   }
 }
 
